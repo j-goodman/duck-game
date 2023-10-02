@@ -22,6 +22,7 @@ class GameObject {
             x: 0,
             y: 0,
         }
+        game.objects.push(this)
     }
 
     move () {
@@ -59,6 +60,8 @@ class Duck extends GameObject {
     }
 }
 
+const game = new Game ()
+
 let duck = new Duck (223, 160)
 duck.image = new Image ()
 duck.image.src = "duck.png"
@@ -66,9 +69,6 @@ duck.image.src = "duck.png"
 const canvas = document.getElementById("canvas")
 const ctx = canvas.getContext("2d")
 canvas.style.imageRendering = "pixelated"
-
-const game = new Game ()
-game.objects.push(duck)
 
 game.controller = {
     leftKeyDown: false,
